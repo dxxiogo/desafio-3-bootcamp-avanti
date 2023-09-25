@@ -1,0 +1,9 @@
+.main {
+    background-image: url(./assets/futball-camp.jpg);
+    background-size: cover;
+    background-clip: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
