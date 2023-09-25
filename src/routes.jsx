@@ -1,4 +1,11 @@
 import {createBrowserRouter} from 'react-router-dom';
+import { FormCreateTeam } from './pages/FormCreateTeam';
+import { FormCreatePlayer } from './pages/FormCreatePlayer';
+import { FormCreateChampionship } from './pages/FormCreateChampionship';
+import { Championships } from './pages/Championships';
+import { RootLayout } from './pages/RootLayout';
+import { Players } from './pages/Players';
+import { Teams } from './pages/Teams';
 
 export const router = createBrowserRouter([
     {
@@ -12,24 +19,22 @@ export const router = createBrowserRouter([
             {
                 path: '/teams',
                 element: <Teams/>,
-                children: [
-                    {
-                        path: '/players',
-                        element: <Players/>
-                    }
-                ]
             }, 
             {
+                path: '/players',
+                element: <Players/>
+            },
+            {
                 path:'/createChampionship',
-                element: <CreateChampionship/>
+                element: <FormCreateChampionship/>
             },
             {
                 path:'/createPlayer',
-                element: <CreateChampionship/>
+                element: <FormCreatePlayer/>
             },
             {
                 path:'/createTeam',
-                element: <CreateChampionship/>
+                element: <FormCreateTeam/>
             }
         ]
     }
