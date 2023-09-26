@@ -7,7 +7,7 @@ export async function createRequest(data, path) {
         method:'POST',
         data: data
       });
-      console.log(response.data)
+      return response.data;
     } catch (err) {
       console.log(err)
     }
