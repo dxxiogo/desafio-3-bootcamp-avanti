@@ -1,19 +1,20 @@
 import { useTeam } from "../../contexts/teamsContext"
 import { ViewButton } from "../ViewButton";
 import { DeleteButton } from "../DeleteButton";
+import { Link } from "react-router-dom";
 
 export function TeamInfo ({id, name, foundation}) {
    
     const {deleteTeam} = useTeam();
    
     return (
-        <div class="border rounded-lg p-4 mb-4 shadow-md">
-            <span class="text-lg font-bold">Nome: {name} </span>
-            <div class="mt-2 flex gap-2">
+        <div className="border rounded-lg p-4 mb-4 shadow-md w-[550px]">
+            <span className="text-lg font-bold">Nome: {name} </span>
+            <div className="mt-2 flex gap-2">
               <DeleteButton handleClick={() => deleteTeam(id)}/>
-              <ViewButton content={'Jogadores'}/>
+              <Link to={`/teams/players/${id}`} ><ViewButton content={'Jogadores'}/></Link>
             </div>
-            <div class="mt-2 text-gray-700">
+            <div className="mt-2 text-gray-700">
                 <span>Fundação: {foundation} </span>
             </div>
         </div>
