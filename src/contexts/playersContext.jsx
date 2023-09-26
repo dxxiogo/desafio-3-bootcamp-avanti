@@ -13,7 +13,7 @@ export function PlayerProvider({ children }) {
 
   async function createPlayer(name, age, position, team) {
 
-    const data = {nome: name, idade: age, position: position, timeId: team};
+    const data = {nome: name, idade: +age, position: position, timeId: team};
     try {
       const createdPlayer = await createRequest(data, 'jogador')
       console.log(createdPlayer);
