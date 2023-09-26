@@ -1,8 +1,17 @@
-export function Input ({id, label, type, value, handleChange}) {
+export function Input({ id, label, type, value, handleChange }) {
     return (
-        <div>
-            <label htmlFor={id}>{label}</label>
-            <input  id={id} type={type} onChange={handleChange} value={value}/>
-        </div>
-    )
-}
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
+          {label}
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id={id}
+          type={type}
+          value={value}
+          onChange={handleChange}
+        />
+      </div>
+    );
+  }
+  

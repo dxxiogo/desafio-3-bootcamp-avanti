@@ -1,18 +1,26 @@
-export function Select ({options, id, value, handleChange}) {
+export function Select({ options, id, value, handleChange }) {
     console.log(options)
-    if(options) {
+    if(options)
+        console.log(options)
         return (
-            <div>
-                <label htmlFor={id}>Times:</label>
-                <select id={id} value={value} onChange={handleChange} >
-                    <option value="">Selecione um time</option>
-                    {options.map((option) => (
-                        <option key={option.id} value={option.id}>{option.name}</option>
-                    ))}
-                </select>
-            </div>
-        )
-    } else {
-        return 'Adicione times para adicionar os jogadores'
-    }
-}
+        <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor={id}>
+            Times:
+            </label>
+            <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id={id}
+            value={value}
+            onChange={handleChange}
+            >
+                <option value="">Selecione um time</option>
+                {options.map((option) => (
+                    <option key={option.id} value={option.id}>
+                    {option.nome}
+                    </option>
+                ))}
+            </select>
+        </div>
+        );
+  }
+  
