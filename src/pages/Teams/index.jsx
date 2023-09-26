@@ -10,10 +10,10 @@ export function Teams () {
         fetchTeams();
     }, [])
     return (
-        <div>
+        <div className=" p-6 mr-2">
             <h1>Times:</h1>
             <div>
-                <div className="max-h-48 overflow-y-auto mt-8">
+                <div className="max-h-72 overflow-y-auto mt-8">
                     {teams.map(({id, nome, fundacao}) => (
                         <TeamInfo key={id} name={nome} foundation={fundacao} id={id}/>
                     ))}
