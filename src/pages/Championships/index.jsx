@@ -13,7 +13,7 @@ export function Championships () {
     return (
         <div>
             <h1>Campeonatos:</h1>
-            <div className="max-h-60 overflow-y-auto mt-8">
+            <div className="max-h-72 overflow-y-auto mt-8">
                 {championships.map(({ id, nome, dataInicio, dataFim }) => (
                 <ChampionshipInfo key={id} name={nome} endDate={dataFim} startDate={dataInicio} id={id} />
                 ))}
