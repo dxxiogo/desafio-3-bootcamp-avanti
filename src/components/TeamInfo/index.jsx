@@ -12,7 +12,7 @@ export function TeamInfo ({id, name, foundation}) {
             <span className="text-lg font-bold">Nome: {name} </span>
             <div className="mt-2 flex gap-2">
               <DeleteButton handleClick={() => deleteTeam(id)}/>
-              <Link to={`/teams/players/${id}`} ><ViewButton content={'Jogadores'}/></Link>
+              <Link to={`/playersByTeam/${id}`} ><ViewButton content={'Jogadores'}/></Link>
             </div>
             <div className="mt-2 text-gray-700">
                 <span>Fundação: {foundation} </span>

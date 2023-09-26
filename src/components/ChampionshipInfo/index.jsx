@@ -1,6 +1,7 @@
 import { useChampionship } from "../../contexts/championshipContext"
 import { ViewButton } from "../ViewButton";
 import { DeleteButton } from "../DeleteButton";
+import { Link } from "react-router-dom";
 
 export default function ChampionshipInfo ({id, name, endDate, startDate}) {
 
@@ -11,7 +12,9 @@ export default function ChampionshipInfo ({id, name, endDate, startDate}) {
         <span className="text-lg font-bold">Nome: {name}</span>
         <div className="mt-2 flex gap-2">
           <DeleteButton handleClick={() => deleteChampionship(id)}/>
-          <ViewButton content={'Times'}/>
+          <Link to='/teamsByChampionship'>
+            <ViewButton content={'Times'}/>
+          </Link>
         </div>
         <div className="mt-2 text-gray-700 flex flex-col">
           <span className= "text-black">Data início: {startDate}</span>

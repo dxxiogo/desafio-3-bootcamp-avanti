@@ -6,6 +6,9 @@ import { Championships } from './pages/Championships';
 import { RootLayout } from './pages/RootLayout';
 import { Players } from './pages/Players';
 import { Teams } from './pages/Teams';
+import { PlayersByTeam } from './pages/PlayersByTeam';
+import { playersByTeamLoader } from './loaders/playersByTeam';
+import { TeamByChampionship } from './pages/TeamsByChampionship/TeamsByChampionship';
 
 export const router = createBrowserRouter([
     {
@@ -19,7 +22,15 @@ export const router = createBrowserRouter([
             {
                 path: '/teams',
                 element: <Teams/>,
-            }, 
+            },
+            {
+                path: 'playersByTeam/:teamId',
+                element: <PlayersByTeam/>,
+            },
+            {
+                path: 'teamsByChampionship',
+                element: <TeamByChampionship/>
+            },
             {
                 path: '/players',
                 element: <Players/>
