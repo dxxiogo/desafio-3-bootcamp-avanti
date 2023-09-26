@@ -11,10 +11,10 @@ export function TeamProvider({ children }) {
   const [teams, setTeams] = useState([]);
 
   async function createTeam(name, foundation) {
-    const data = {nome: name, fundacao: foundation};
+    const data = {nome: name, fundacao: new Date(foundation)};
     try {
       const teamCreated = await createRequest(data, 'time');
-      
+      console.log(teamCreated)
       setTeams((state) => {
         const newState = [ teamCreated, ...state];
         return newState;
