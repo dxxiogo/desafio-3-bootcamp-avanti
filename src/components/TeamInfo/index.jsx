@@ -24,7 +24,7 @@ export function TeamInfo ({id, name, foundation}) {
               <Link to={`/playersByTeam/${id}`} ><ViewButton content={'Jogadores'}/></Link>
             </div>
             <div className="mt-2 text-gray-700">
-                <span>Fundação: {foundation} </span>
+                <span>Fundação: {formatDate(foundation)} </span>
             </div>
         </div>
     )
