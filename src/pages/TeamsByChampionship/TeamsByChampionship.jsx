@@ -13,6 +13,7 @@ export function TeamByChampionship () {
     const [teamSelected, setTeamSelected] = useState('');
     const {teamsByChamp, fetchTeamsByChampionship,  addTeamToChampionship} = useChampionship()
     const {teams, fetchTeams} = useTeam();
+    const {championships} = useChampionship();
 
     useEffect(() => {
       fetchTeamsByChampionship(champId);
@@ -22,15 +23,20 @@ export function TeamByChampionship () {
     const teamIdsFromChampionshipsTeams = new Set(teamsByChamp.map(item => item.idTime));
 
     const teamsInChampionships = teams.filter(team => teamIdsFromChampionshipsTeams.has(team.id));
-    
+
+    function getChampionshipName (champId) {
+        const championship = championships.find(({id}) => champId === id);
+        return championship.nome
+    }
   
     return (
       <div>
-        <h1>Campeonato</h1>
-          <div className='flex align-center gap-3'>
+        <h1 className="text-2xl font-bold">{getChampionshipName(champId)}</h1>
+          <div className='flex align-center gap-3 mt-3'>
             <Select
               options={teams}
               value={teamSelected}
+              label="Times disponíveis:"
               handleChange={(ev) => setTeamSelected(ev.target.value)}
               />
             <button 
@@ -39,7 +45,7 @@ export function TeamByChampionship () {
                 Adicionar</button>
           </div>
         <div>
-          <h2>Times Disponíveis:</h2>
+          <h2>Times:</h2>
           <div className="max-h-72 overflow-y-auto mt-6">
             {teamsInChampionships.map(({id, nome, fundacao}) => (
               <TeamInfo key={id} id={id} name={nome} foundation={fundacao}/>
