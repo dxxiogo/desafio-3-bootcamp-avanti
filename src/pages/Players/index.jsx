@@ -6,19 +6,31 @@ import { usePlayer } from "../../contexts/playersContext"
 export function Players () {
 
     const {players, fetchPlayers} = usePlayer();
+    const [searchTerm, setSearchTerm] = useState("");
 
    useEffect(() => {
         fetchPlayers();
    }, []);
 
-    return (
-        <div>
-            <h1 className="">Jogadores</h1>
-            <div className="max-h-72 overflow-y-auto mt-8">
-                {players.map(({id, nome, idade, position}) => (
-                    <PlayerInfo key={id} name={nome} age={idade} position={position} id={id}/>
-                ))}
-            </div>
-        </div>
-    )
+   const filteredPlayers = players.filter(({ nome }) =>
+    nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <div>
+      <h1 className="">Jogadores</h1>
+      { }
+      <input
+        type="text"
+        placeholder="Buscar jogador"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <div className="max-h-72 overflow-y-auto mt-8">
+        {filteredPlayers.map(({ id, nome, idade, position }) => (
+          <PlayerInfo key={id} name={nome} age={idade} position={position} id={id} />
+        ))}
+      </div>
+    </div>
+  );
 }
