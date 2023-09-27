@@ -4,6 +4,41 @@
 
 Este projeto permite o gerenciamento de informações esportivas, permitindo a criação, visualização e gerenciamento de campeonatos, times e jogadores. Foi desenvolvido como projeto final do Curso de Desenvolvimento Full Stack [Atlântico Avanti](https://edu.atlanticoavanti.com.br/portal/home/ "Site do Atlântico Avanti") pela equipe "Iara Devs", composta por Diogo Santana Freitas e Pietra Almeida S. Costa.
 
+## Consumo da API
+Este projeto consome a API disponível em GitHub - Projeto Iara Devs. A API fornece os dados necessários para o gerenciamento de campeonatos, times e jogadores nesta aplicação React.
+
+## Screenshots da Aplicação
+Aqui estão algumas capturas de tela da aplicação para ajudá-lo a visualizar as diferentes páginas e funcionalidades:
+
+### Página de Campeonatos
+![](./src/assets/screenshots/page-campeonatos.png)
+
+### Página de Jogadores
+
+![](./src/assets/screenshots/page-players.png)
+
+### Página de Times
+
+![](./src/assets/screenshots/pages-times.png)
+
+### Página de Criação de Campeonatos
+
+![](./src/assets/screenshots/pages-formulario-campeonato.png)
+
+### Página de Criação de Jogadores
+
+![](./src/assets/screenshots/page-formulario-jogador.png)
+
+### Página de Times de um Campeonato Específico
+
+![](./src/assets/screenshots/times-do-campeonato.png)
+
+### Página de Jogadores de um Time Específico
+
+![](./src/assets/screenshots/jogadores-por-time.png)
+
+
+
 ## Executando o Projeto Localmente
 
 Para executar este projeto em seu ambiente de desenvolvimento, siga estas etapas:
