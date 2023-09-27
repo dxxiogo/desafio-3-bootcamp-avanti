@@ -13,11 +13,14 @@ export function Players () {
 
     return (
         <div>
-            <h1 className="">Jogadores</h1>
-            <div className="max-h-72 overflow-y-auto mt-8">
-                {players.map(({id, nome, idade, position}) => (
+            <div className="flex justify-between">
+                <h1 className="text-2xl font-bold">Jogadores:</h1>
+                <input type="text"  className=" shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+            </div>
+            <div className="max-h-72 overflow-y-auto mt-6">
+                {players.length !== 0 ? players.map(({id, nome, idade, position}) => (
                     <PlayerInfo key={id} name={nome} age={idade} position={position} id={id}/>
-                ))}
+                )): 'Ainda não há jogadores registrados'}
             </div>
         </div>
     )

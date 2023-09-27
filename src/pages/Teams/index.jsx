@@ -10,13 +10,13 @@ export function Teams () {
         fetchTeams();
     }, [])
     return (
-        <div className=" p-6 mr-2">
-            <h1>Times:</h1>
+        <div>
+            <h1 className="text-2xl font-bold">Times:</h1>
             <div>
-                <div className="max-h-72 overflow-y-auto mt-8">
-                    {teams.map(({id, nome, fundacao}) => (
+                <div className="max-h-72 overflow-y-auto mt-6">
+                    {teams.length !== 0 ? teams.map(({id, nome, fundacao}) => (
                         <TeamInfo key={id} name={nome} foundation={fundacao} id={id}/>
-                    ))}
+                    )) : 'Ainda não há times registrados'}
                 </div>
             </div>
         </div>
