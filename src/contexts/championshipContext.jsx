@@ -9,6 +9,7 @@ export function useChampionship() {
 
 export function ChampionshipProvider({ children }) {
   const [championships, setChampionships] = useState([]);
+  const [teamsByChamp, setTeamsByChamp] = useState([]);
 
  async function createChampionship(name, startDate, endDate) {
     try {
@@ -34,15 +35,31 @@ export function ChampionshipProvider({ children }) {
     }
   }
   
+  async function fetchChampionships () {
+      const championships = await fetchRequest('campeonatos')
+      setChampionships(championships);
+  }
 
+  async function addTeamToChampionship (data) {
+    try{
+      await createRequest(data, 'times-por-campeonato');
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
-async function fetchChampionships () {
-    const championships = await fetchRequest('campeonatos')
-    setChampionships(championships);
-}
+  async function fetchTeamsByChampionship (champId) {
+      try {
+        const teamsByChamp = await fetchRequest(`times-por-campeonato/${champId}`)
+        setTeamsByChamp(teamsByChamp);
+      } catch (err) {
+        console.log(err);
+      }
+  }
 
   return (
-    <ChampionshipContext.Provider value={{ championships, createChampionship, deleteChampionship, fetchChampionships}}>
+    <ChampionshipContext.Provider 
+    value={{ championships, createChampionship, deleteChampionship, fetchChampionships, addTeamToChampionship, teamsByChamp, fetchTeamsByChampionship}}>
       {children}
     </ChampionshipContext.Provider>
   );
